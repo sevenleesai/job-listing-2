@@ -1,4 +1,7 @@
 class Job < ApplicationRecord
+  scope :recent, -> { where(is_hidden: false) }
+end
+
   def publish!
     self.is_hidden = false
     self.save
